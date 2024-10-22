@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Releases List</title>
+</head>
+<body>
+<h1>Releases</h1>
+<a th:href="@{/releases/new}">Create New Release</a>
+<table>
+    <thead>
+        <tr>
+            <th>Change Number</th>
+            <th>Application Name</th>
+            <th>Change Type</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="release : ${releases}">
+            <td th:text="${release.paymentsChangeNumber}"></td>
+            <td th:text="${release.applicationName}"></td>
+            <td th:text="${release.typeOfChange}"></td>
+            <td>
+                <a th:href="@{/releases/edit/{id}(id=${release.paymentsChangeNumber})}">Edit</a>
+                <a th:href="@{/releases/delete/{id}(id=${release.paymentsChangeNumber})}">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
