@@ -1,23 +1,64 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Release Form</title>
+    <title>Create Release</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script src="/js/validation.js"></script>
 </head>
 <body>
-<h1 th:text="${#strings.isEmpty(release.paymentsChangeNumber) ? 'Create Release' : 'Edit Release'}"></h1>
+    <h2>Create New Release</h2>
+    <form th:action="@{/releases/create}" method="post" onsubmit="return validateForm()">
+        
+        <label for="paymentsChangeNumber">Change Number:</label>
+        <input type="text" id="paymentsChangeNumber" name="paymentsChangeNumber" th:value="${release.paymentsChangeNumber}" required/><br/>
+        
+        <label for="referenceSnowCrNumber">Reference SNOW CR Number:</label>
+        <input type="text" id="referenceSnowCrNumber" name="referenceSnowCrNumber" th:value="${release.referenceSnowCrNumber}" required/><br/>
+        
+        <label for="snowCrStatus">SNOW CR Status:</label>
+        <input type="text" id="snowCrStatus" name="snowCrStatus" th:value="${release.snowCrStatus}" required/><br/>
+        
+        <label for="createdDate">Created Date:</label>
+        <input type="date" id="createdDate" name="createdDate" th:value="${release.createdDate}" required/><br/>
+        
+        <label for="implementationDate">Implementation Date:</label>
+        <input type="date" id="implementationDate" name="implementationDate" th:value="${release.implementationDate}" required/><br/>
+        
+        <label for="priority">Priority:</label>
+        <input type="text" id="priority" name="priority" th:value="${release.priority}" required/><br/>
+        
+        <label for="typeOfChange">Type of Change:</label>
+        <input type="text" id="typeOfChange" name="typeOfChange" th:value="${release.typeOfChange}" required/><br/>
+        
+        <label for="changesDescription">Changes Description:</label>
+        <textarea id="changesDescription" name="changesDescription" required th:text="${release.changesDescription}"></textarea><br/>
+        
+        <label for="justification">Justification:</label>
+        <textarea id="justification" name="justification" required th:text="${release.justification}"></textarea><br/>
+        
+        <label for="impactIfNotDeployed">Impact if Not Deployed:</label>
+        <textarea id="impactIfNotDeployed" name="impactIfNotDeployed" required th:text="${release.impactIfNotDeployed}"></textarea><br/>
+        
+        <label for="outcomeAfterChanges">Outcome After Changes:</label>
+        <textarea id="outcomeAfterChanges" name="outcomeAfterChanges" required th:text="${release.outcomeAfterChanges}"></textarea><br/>
+        
+        <label for="changeInitiator">Change Initiator:</label>
+        <input type="text" id="changeInitiator" name="changeInitiator" th:value="${release.changeInitiator}" required/><br/>
+        
+        <label for="applicationName">Application Name:</label>
+        <input type="text" id="applicationName" name="applicationName" th:value="${release.applicationName}" required/><br/>
+        
+        <label for="reviewerComment">Reviewer Comment:</label>
+        <textarea id="reviewerComment" name="reviewerComment" th:text="${release.reviewerComment}"></textarea><br/>
+        
+        <label for="approverName">Approver Name:</label>
+        <input type="text" id="approverName" name="approverName" th:value="${release.approverName}" required/><br/>
+        
+        <label for="approverDecision">Approver Decision:</label>
+        <input type="text" id="approverDecision" name="approverDecision" th:value="${release.approverDecision}" required/><br/>
 
-<form th:action="@{/releases}" th:object="${release}" method="post">
-    <input type="hidden" th:field="*{paymentsChangeNumber}" />
-    <label>Application Name: </label>
-    <input type="text" th:field="*{applicationName}" /><br>
-    
-    <label>Type of Change: </label>
-    <input type="text" th:field="*{typeOfChange}" /><br>
-
-    <!-- Add other fields similarly -->
-
-    <button type="submit">Save</button>
-</form>
-<a th:href="@{/releases}">Back to List</a>
+        <button type="submit">Save</button>
+    </form>
+    <a th:href="@{/releases}">Back to List</a>
 </body>
 </html>
