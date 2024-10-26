@@ -1,0 +1,31 @@
+public String buildHtmlContent(ProductionReleaseManagement pr) {
+    return """
+            <html>
+            <body>
+                <h2>Production Release Management Details</h2>
+                <table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
+                    <tr style="background-color: #f2f2f2;">
+                        <th style="border: 1px solid #dddddd; padding: 8px; text-align: left;">Field</th>
+                        <th style="border: 1px solid #dddddd; padding: 8px; text-align: left;">Value</th>
+                    </tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Payments Change Number</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getPaymentsChangeNumber() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Reference Snow CR Number</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getReferenceSnowCrNumber() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Snow CR Status</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getSnowCrStatus() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Created Date</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getCreatedDate() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Implementation Date</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getImplementationDate() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Priority</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getPriority() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Type of Change</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getTypeOfChange() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Changes Description</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getChangesDescription() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Justification</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getJustification() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Impact if Not Deployed</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getImpactIfNotDeployed() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Outcome After Changes</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getOutcomeAfterChanges() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Change Initiator</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getChangeInitiator() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Application Name</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getApplicationName() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Reviewer Comment</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getReviewerComment() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Approver Name</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getApproverName() + """</td></tr>
+                    <tr><td style="border: 1px solid #dddddd; padding: 8px;">Approver Decision</td><td style="border: 1px solid #dddddd; padding: 8px;">""" + pr.getApproverDecision() + """</td></tr>
+                </table>
+            </body>
+            </html>
+            """;
+}
